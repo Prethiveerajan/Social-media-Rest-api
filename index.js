@@ -5,6 +5,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const authRouter = require('./routes/Auth');
 const userRouter = require('./routes/UserRoute');
+const postRouter = require('./routes/PostRoute');
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ app.use(helmet());
 app.use(cors());
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
+app.use("/api/post",postRouter);
 
 mongoose.connect(DB_URL)
   .then(() => console.log('Connected to MongoDB'))
